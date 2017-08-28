@@ -152,6 +152,8 @@ fit_eight=kmeans(credit_data,8) #eight cluster solution
 
 aggregate(credit_data,by=list(fit_eight$cluster),FUN=mean) #cluster_means for eight cluster solution 
 
+                    
+###RESULTS###
 #group.1 checking_status duration_mos  cred_hist     purpose     cred_amt savings_account duration_empl installment_rate
 #1       1       0.3888161  -0.17128023 -0.0860693 -0.06319406 -0.187472994      0.38377335   -0.11007101      0.453175279
 #2       2      -0.1274877  -0.78667214  0.1379759 -0.14848500 -0.411414031     -0.13388806    0.37064233     -0.262244950
@@ -181,10 +183,3 @@ aggregate(credit_data,by=list(fit_eight$cluster),FUN=mean) #cluster_means for ei
 #8  0.630019396     0.1533513         0.57075980 -0.1401791 0.5052632
 
 
-#Create a hierarchical clustering algorithm:
-
-#dist_matrix=dist(cred_dat, method = "euclidean") # distance matrix
-#fit=hclust(dist_matrix, method="ward.D2") #hierarchical cluster
-#plot(fit) 
-#groups=cutree(fit, k=8) # cut tree into 5 clusters
-#rect.hclust(fit, k=8, border="blue")
