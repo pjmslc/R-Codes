@@ -1,4 +1,4 @@
-# R-Codes(In Progress)
+# K_NN.R(In Progress)
   
   1000 German records of credit card purchases-each by a different individual (n=1000) available from:
   https://archive.ics.uci.edu/ml/machine-learning-databases/statlog/german/german.data
