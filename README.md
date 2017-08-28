@@ -1,5 +1,4 @@
-# R-Codes
-K_nn.R
+# R-Codes(In Progress)
   
   1000 German records of credit card purchases-each by a different individual (n=1000) available from:
   https://archive.ics.uci.edu/ml/machine-learning-databases/statlog/german/german.data
@@ -43,11 +42,17 @@ K_nn.R
   
   
  #Results
- K=3 yields a minimum classification error rate of 12%, which is quite low. In other words, 88% of the time, the algorithm correctly classifies the purchaser as having good credit when he has good credit and bad credit when he actually has bad credit. 
+ K=3 yields a minimum classification error rate of 12%, which is quite low. In other words, 88% of the time, the algorithm correctly classifies the purchaser as having good credit when he has good credit and bad credit when he/she actually has bad credit. 
+ 
+ The K-means clustering algorithm settled on classfying the 1000 debtors into 8 different types based on minimizing the amount of variation within the clusters of debtors-coded as wss in the script. 
+ 
+ There is always a tradeoff between the number of clusters to form and the interpretability of the clusters. Increasing the number of clusters decreases the variation within groups but has no interpretability because at some point every debtor has his or her own category! This is why I settled on the 8 cluster solution because increasing the number of clusters from the point decreases model performance as seen in the graph  (in the PDF"Clusters" stored in this responsitory) which plots the within group sums of squares as a function of the nuber of clusters. 
+ 
+ Additionally, if you look at the values of each variable for each cluster (in the large commented section of the R code) you will notice a distinct and expected trend between those who are less likely to repay their purchase and those who are more likely to repay. 
  
 
 
-  #CODE
-  The file K_nn.R contains the raw hand coded function (K_nn) for executing both a K-nearest neighbors classification   algorithm for any dataset coded as a matrix and split into training data and test data.
-  
-  The file also contains a K-means clustering of the same dataset 
+ 
+
+
+
