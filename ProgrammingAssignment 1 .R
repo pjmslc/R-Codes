@@ -1,33 +1,20 @@
 #Assignment #1# 
 
-#Skills list#
+##The following functions investigate features of observations from several files-each file containing a data frame 
+#with nitrate and sulfate levels on different days for a particular air quality sensor. ##
 
-#Skill 1: Append or add values to a vector#
-
-nums=c(2,20,43,21)
-
-dups=numeric() #initialize an empty numeric vector
-
-for(num in nums){
- dups=c(dups,num) #takes dups and adds each element of nums onto dups
-}
-
-#Skill 2: Access a column of a data frame
-#data[["sulfate]] gives the sulfate column of the data frame
-#mean(data[["sulfate]],na.rm=TRUE) gives the mean of the sulfate column 
-
-
+#The "pollutantmean" function calculates the mean of airquality observations over a selected number of air quality sensors 
 pollutantmean=function(directory,pollutant,id=1:332){
   fileList=list.files(path=directory,pattern=".csv",full.names=TRUE) #directory is "C://Users//I864933//Desktop//specdata"
-  values=numeric() #empty vector ewith numeric entries , retains the information 
+  values=numeric() #empty vector with numeric entries , retains the information 
   for(i in id){
     data=read.csv(file=fileList[i]) #get the data from the ith file 
-    values=c(values,data[[pollutant]]) #allows us to save previously 
+    values=c(values,data[[pollutant]]) 
   }
-  mean(values,na.rm=TRUE) #calculates the mean of all values of a certain pollutant over multiple files
+  mean(values,na.rm=TRUE) #remove NA values 
 }
 
-#Counts the number of complete entries in files 
+#The "complete" function counts the number of complete entries in each of the air qwuality sensor files 
 complete=function(directory,id=1:332){
   fileList=list.files(path=directory,pattern=".csv",full.names=TRUE)
   nobs=numeric()
@@ -42,7 +29,7 @@ complete=function(directory,id=1:332){
 } 
 
 
-#calculates correlations between observations 
+#The "corr" function calculates correlation between sulfate and nitrate levels for sensors with at least one complete observation-ie both sulfate and nitrate level record
 corr=function(directory,threshold=0){
   fileList=list.files(path=directory,pattern=".csv",full.names=TRUE)
   corrs=numeric() #vector to store correlations
@@ -57,9 +44,3 @@ corr=function(directory,threshold=0){
  corrs 
 }
 
-cr=corr("C://Users//I864933//Desktop//specdata",2000)
-n=length(cr)
-cr=corr("C://Users//I864933//Desktop//specdata",1000)
-cr=sort(cr)
-
-print(c(n,round(cr,4)))
